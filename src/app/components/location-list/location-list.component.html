@@ -1,0 +1,22 @@
+<table class="table table-striped table-hover ">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Nume</th>
+    <th>Data</th>
+    <th>Adresa</th>
+    <th>Actiuni</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let location of locations;" >
+    <td [ngClass]="location.isActive ? '' : 'danger'">{{location.id}}</td>
+    <td>{{location.author}}</td>
+    <td>{{location.createdAt | date:'short'}}</td>
+    <td>{{location.address}}</td>
+    <td>
+      <button class="btn btn-success btn-xs" (click)="updateLocation(location)" [routerLink] = "['/location-list', location._id]">Arata locatia</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
